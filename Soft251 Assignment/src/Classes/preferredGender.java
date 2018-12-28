@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 package Classes;
-import Classes.preferredGender;
+
 /**
  *
  * @author Jordan
  */
-public class Patient extends User{
-    private preferredGender gender = new preferredGender();
+public abstract class preferredGender {
+    private String Gender = "Unknown Gender";
+    
+    public String getGender() {
+        return Gender;
+    }
+    public abstract String setGender();
     
 }
