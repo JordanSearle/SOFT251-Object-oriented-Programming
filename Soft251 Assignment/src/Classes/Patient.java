@@ -4,14 +4,18 @@
  * and open the template in the editor.
  */
 package Classes;
+
 import Classes.DecoratorPattern.preferredGender;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Jordan
  */
 public class Patient extends User{
-    private preferredGender gender;
-    
+    private preferredGender Gender;
+    private List<Prescription> prescription = new ArrayList();
     
 public Patient(String forename, String surname, String addressLineOne, String addressLineTwo, String postcode, String iDNum){
     setForename(forename);
