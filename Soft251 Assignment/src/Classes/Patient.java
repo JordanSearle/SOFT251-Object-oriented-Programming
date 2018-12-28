@@ -4,12 +4,24 @@
  * and open the template in the editor.
  */
 package Classes;
-import Classes.preferredGender;
+import Classes.DecoratorPattern.preferredGender;
 /**
  *
  * @author Jordan
  */
 public class Patient extends User{
-    private preferredGender gender = new preferredGender();
+    private preferredGender gender;
     
+    
+public Patient(String forename, String surname, String addressLineOne, String addressLineTwo, String postcode, String iDNum){
+    setForename(forename);
+    setSurname(forename);
+    setAddressLineOne(addressLineOne);
+    setAddressLineTwo(addressLineTwo);
+    setPostcode(postcode);
+    setiDnum(iDNum);      
+}
+
+
+
 }
