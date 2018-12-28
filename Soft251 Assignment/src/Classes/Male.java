@@ -7,14 +7,13 @@ package Classes;
 
 /**
  *
- * @author Jordan
+ * @author megst
  */
-public abstract class preferredGender {
-    String gender = "Unknown Gender";
-    
-    public String getGender() {
-        return gender;
+public class Male extends preferredGender{
+   
+    @Override
+    public String setGender(){
+        return this.gender = "Male";
     }
-    public abstract String setGender();
     
-}
+} 
