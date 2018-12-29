@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +17,17 @@ public class Prescription {
     private int quanity;
     private String notes;
     //Contains ArrayList of Medicines from an appointment
-    private List<Medicine> medicine = new ArrayList();    
+    private ArrayList<Medicine> medicine = new ArrayList();    
 
     public void addMedicine(){
     //Will add Medicine when called.
     }
     
-    public List<Medicine> getMedicine() {
+    public ArrayList<Medicine> getMedicine() {
         return medicine;
     }
 
-    public void setMedicine(List<Medicine> medicine) {
+    public void setMedicine(ArrayList<Medicine> medicine) {
         this.medicine = medicine;
     }
 
@@ -46,5 +46,11 @@ public class Prescription {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public Medicine returnMedicine(int i) {
+        Medicine tempMedicine = medicine.get(i);
+        return tempMedicine;
+    }
+
     
 }
