@@ -15,9 +15,12 @@ import Classes.DecoratorPattern.preferredGender;
  * @author Jordan
  */
 public class Male extends preferredGender{   
+    public Male(){
+        this.gender = "Male";
+    }
     @Override
-    public String setGender(){
+    public String getGender(){
         return this.gender = "Male";
     }
+    }
     
-} 

@@ -1,3 +1,5 @@
+package Classes;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,8 +8,6 @@
 
 
 import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Jordan
@@ -15,16 +15,20 @@ import java.util.List;
 public class Prescription {
     
     private int quanity;
-    private String notes;
+    private String notes = "";
     //Contains ArrayList of Medicines from an appointment
     private ArrayList<Medicine> medicine = new ArrayList();    
 
-    public void addMedicine(){
-    //Will add Medicine when called.
+    public void addMedicine(Medicine medicines){
+    medicine.add(medicines);
+    setNotes(medicines.getName());
     }
     
     public ArrayList<Medicine> getMedicine() {
         return medicine;
+    }
+    public Medicine getMedicine(int i) {
+        return medicine.get(i);
     }
 
     public void setMedicine(ArrayList<Medicine> medicine) {
@@ -43,8 +47,12 @@ public class Prescription {
         return notes;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setNotes(String name) {
+        String nameStore = "";
+        for (int i = 0; i < medicine.size(); i++) {
+            nameStore = getNotes() + String.format("%s, %x, %s. ", name, medicine.get(i).getQuantity(), medicine.get(i).getDosage());
+        }
+        this.notes = nameStore;        
     }
 
     public Medicine returnMedicine(int i) {

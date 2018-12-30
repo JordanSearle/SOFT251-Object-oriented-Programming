@@ -1,3 +1,5 @@
+package Classes;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +18,9 @@ public class Ratings {
     private String patientForename;
     private int rating;
     private String review;
-
+    private String feedback;     
+    private Date date;
+    
     public String getReview() {
         return review;
     }
@@ -24,8 +28,7 @@ public class Ratings {
     public void setReview(String review) {
         this.review = review;
     }
-    private String feedback;    
-
+    
     public String getDoctorName() {
         return doctorName;
     }
@@ -65,5 +68,4 @@ public class Ratings {
     public void setDate(Date date) {
         this.date = date;
     }
-    private Date date;
 }

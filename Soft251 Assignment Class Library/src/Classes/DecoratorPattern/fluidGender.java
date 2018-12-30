@@ -1,3 +1,5 @@
+package Classes.DecoratorPattern;
+
 
 import Classes.DecoratorPattern.preferredGender;
 
@@ -12,11 +14,10 @@ import Classes.DecoratorPattern.preferredGender;
  *
  * @author Jordan
  */
-public abstract class fluidGender extends preferredGender {
-    
-    preferredGender Gender;
+public abstract class fluidGender extends preferredGender {    
+    preferredGender gender;
     
     public fluidGender(preferredGender Gender){
-        this.Gender = Gender;
+        this.gender = Gender;
     }
 }
