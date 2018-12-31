@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Jordan Searle
  */
-public class Secretary {
+public class Secretary extends User{
     
     private ArrayList<Patient>approvePatient = new ArrayList();
     private ArrayList<Appointment>approveAppointment = new ArrayList();
