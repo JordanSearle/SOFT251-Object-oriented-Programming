@@ -42,6 +42,11 @@ public class Secretary {
     public void disprovePatient(int numberPatient){
         this.approvePatient.remove(numberPatient);
     }
+    public ArrayList<Patient>delPatient(int patientNum, ArrayList<Patient> patients){
+        ArrayList<Patient> patient = patients;
+        patient.remove(patientNum);
+        return patient;
+    }
     public ArrayList<Patient> delPatient(ArrayList<Patient>Patient,String PatientFullName){
         ArrayList<Patient>Patients = Patient;
         String name = PatientFullName;
@@ -51,5 +56,40 @@ public class Secretary {
             }
         }
         return Patients;
+    }
+    
+    public Stock useStock(Stock stock, Patient patient, Prescription prescription){
+        Patient patientStore = patient;
+        Stock stockStore = stock;
+        //Copies the Patients Prescriptions
+        ArrayList<Prescription> prescriptionStore = patientStore.getPrescription();
+        ArrayList<Medicine> medicine = new ArrayList();
+        
+        //Selects the Correct Prescription and Prescribes it to the patient
+        for (int i = 0; i < prescriptionStore.size(); i++) {
+            //Checks if it is the Correct Prescription
+            if (prescriptionStore.get(i) == prescription) {
+                for (int j = 0; j < prescriptionStore.get(i).getMedicine().size(); j++) {
+                    //Sets prescribed boolean to true and updates level
+                    prescriptionStore.get(i).getMedicine(j).setPrescribed(true);  
+                    stockStore.getMedicine(prescriptionStore.get(i).getMedicine(j).getQuantity(), prescriptionStore.get(i).getMedicine(j).getName());
+                }                
+            }
+        }
+        
+        //Returns Stock
+        return stockStore;
+    }
+    
+    public Stock addStock(Stock stock, int Amount, Medicine medicine){
+        Stock tempStock = stock;
+        ArrayList<Medicine> medicines = stock.getMedicine();
+        for (int i = 0; i < medicines.size(); i++) {
+            if (medicines.get(i) == medicine) {
+                medicines.get(i).setStock(Amount);
+            }
+        }
+        tempStock.setMedicine(medicines);
+        return tempStock;
     }
 }

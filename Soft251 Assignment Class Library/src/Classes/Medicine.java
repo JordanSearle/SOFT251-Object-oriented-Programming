@@ -14,6 +14,7 @@ package Classes;
 public class Medicine {
     private String name;
     private int Quantity;
+    private Boolean prescribed = false;
     private String Dosage;
     private int Stock;
     
@@ -35,6 +36,10 @@ public class Medicine {
     this.name = Name;
     this.Quantity = Quantity;
     this.Dosage = Dosage;
+    }
+    public Medicine(String Name, int Stock){
+        this.name = Name;
+        this.Stock = Stock;
     }
 
     /**
@@ -101,6 +106,13 @@ public class Medicine {
     public void setStock(int Stock) {
         this.Stock = Stock;
     }
-    
+
+    public Boolean getPrescribed() {
+        return prescribed;
+    }
+
+    public void setPrescribed(Boolean prescribed) {
+        this.prescribed = prescribed;
+    }
     
 }

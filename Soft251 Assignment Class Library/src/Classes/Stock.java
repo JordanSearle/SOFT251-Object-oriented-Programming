@@ -56,12 +56,16 @@ public class Stock {
             //Selects each Medicine in the list
             if (medicine.get(j).getName() == name) {
                 //Selects the Correct Medicine from method variables
-                int Stock = medicine.get(j).getStock();
-                    int newStock = Stock - i;
-                    medicine.get(j).setStock(newStock);
+                int Stock = getStock(j);
+                int newStock = Stock - i;
+                medicine.get(j).setStock(newStock);
             }
         }        
     }      
+     
+    public Stock returnStock(){
+        return this;
+    }
     
 
     /**
@@ -74,13 +78,13 @@ public class Stock {
 
     /**
      * Returns a medicine and updates the stock
-     * @param i is the stock it adds
-     * @param name is the name of the medicine
+     * @param amount is the stock it adds
+     * @param medicineName is the name of the medicine
      * @return the medicine that is selected
      */
-    public Medicine getMedicine(int i, String name){
-        useStock(i, name);
-        return medicine.get(i);
+    public Medicine getMedicine(int amount, String medicineName){
+        useStock(amount, medicineName);
+        return medicine.get(amount);
     }
 
     /**
