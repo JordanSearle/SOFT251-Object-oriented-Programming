@@ -56,6 +56,9 @@ public class Patient extends User{
     public void setAppointments(ArrayList<Appointment> appointments) {
         this.appointments = appointments;
     }
+    public void addAppointment(Appointment appointment){
+        this.appointments.add(appointment);
+    }
 
     public void setFemale() {
         this.Gender = new Female();

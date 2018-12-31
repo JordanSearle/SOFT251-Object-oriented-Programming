@@ -28,6 +28,14 @@ public class Doctor extends User {
         return date;
     }
     
+    public void addAppointment(Appointment appointments){
+        this.appointment.add(appointments);
+    }
+    
+    public void delAppointment(int appointmentNum){
+        appointment.remove(appointmentNum);
+    }
+    
     public void setRating(){
         float ratingNum = 0;
         for (int i = 0; i < ratings.size(); i++) {
@@ -47,6 +55,7 @@ public class Doctor extends User {
         ratings.remove(i);
     }
 
+    //Default Getters and Setters
     public int getRating() {
         return rating;
     }

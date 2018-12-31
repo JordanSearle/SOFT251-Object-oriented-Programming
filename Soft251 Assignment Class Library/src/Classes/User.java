@@ -25,7 +25,8 @@ public class User {
     private String addressLineTwo;
     private String City;
     private String postcode;
-
+    private String username;
+    private String password;
     
     
     
@@ -189,5 +190,9 @@ public class User {
         this.iDnum = iDnum;
     }
     
+    
+    public String returnFullName(){
+        return String.format("%s %s", getForename(), getSurname());
+    }
     
 }
