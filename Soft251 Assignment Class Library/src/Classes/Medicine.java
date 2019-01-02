@@ -1,5 +1,8 @@
 package Classes;
 
+import java.io.Serializable;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +14,7 @@ package Classes;
  *
  * @author Jordan
  */
-public class Medicine {
+public class Medicine implements Serializable{
     private String name;
     private int Quantity;
     private Boolean prescribed = false;
@@ -32,7 +35,7 @@ public class Medicine {
      * @param Quanity Quantity of the Medicine
      * @param Dosage Dosage required
      */
-    public Medicine(String Name, int Quanity, String Dosage){
+    public Medicine(String Name, int Quantity, String Dosage){
     this.name = Name;
     this.Quantity = Quantity;
     this.Dosage = Dosage;

@@ -6,13 +6,14 @@
 package Classes;
 
 import Classes.StatePattern.Appointment;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Jordan Searle
  */
-public class Secretary extends User{
+public class Secretary extends User implements Serializable{
     
     private ArrayList<Patient>approvePatient = new ArrayList();
     private ArrayList<Appointment>approveAppointment = new ArrayList();

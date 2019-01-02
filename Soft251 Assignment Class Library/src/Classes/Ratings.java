@@ -7,13 +7,14 @@ package Classes;
  */
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Jordan Searle
  */
-public class Ratings {
+public class Ratings implements Serializable{
     private String doctorName;
     private String patientForename;
     private int rating;

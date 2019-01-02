@@ -9,11 +9,12 @@ package Classes.StatePattern;
 
 import java.util.Date;
 import Classes.Doctor;
+import java.io.Serializable;
 /**
  *
  * @author Jordan
  */
-public class Appointment{
+public class Appointment implements Serializable{
     private Date date;
     private String notes;
     private State state;

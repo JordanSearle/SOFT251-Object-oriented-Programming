@@ -5,12 +5,14 @@
  */
 package Classes.DecoratorPattern;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Jordan
  */
-public class Unique extends fluidGender {
+public class Unique extends fluidGender implements Serializable{
     
     public Unique(preferredGender gender, String fluidGender) {
         super(gender);

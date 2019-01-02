@@ -9,13 +9,14 @@ package Classes;
 
 import Classes.DecoratorPattern.*;
 import Classes.StatePattern.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Jordan Searle
  */
-public class Patient extends User{
+public class Patient extends User implements Serializable{
     public preferredGender Gender;
     private ArrayList<Prescription> prescription = new ArrayList();
     private ArrayList<Appointment> appointments = new ArrayList();

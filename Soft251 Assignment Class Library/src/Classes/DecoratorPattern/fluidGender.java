@@ -2,6 +2,7 @@ package Classes.DecoratorPattern;
 
 
 import Classes.DecoratorPattern.preferredGender;
+import java.io.Serializable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +15,7 @@ import Classes.DecoratorPattern.preferredGender;
  *
  * @author Jordan
  */
-public abstract class fluidGender extends preferredGender {    
+public abstract class fluidGender extends preferredGender implements Serializable{    
     preferredGender gender;
     
     public fluidGender(preferredGender Gender){

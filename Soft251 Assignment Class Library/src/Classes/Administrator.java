@@ -5,13 +5,14 @@
  */
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Administrator Class
  * @author Jordan Searle
  */
-public class Administrator extends User{
+public class Administrator extends User implements Serializable{
 
     /**
      * Creates a Patient account for the Administrator
@@ -49,7 +50,7 @@ public class Administrator extends User{
     }
 
     /**
-     * Adds a new Sectretary
+     * Adds a new Secretary
      * @param secretaryDetails Provides the Details of the Secretary to add
      * @return the new Secretary Details
      */

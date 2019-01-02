@@ -1,5 +1,6 @@
 package Classes;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
@@ -15,7 +16,7 @@ import java.time.Period;
  *
  * @author Jordan
  */
-public class User {
+public class User implements Serializable{
     private String iDnum;
     private String forename;
     private String surname;
@@ -190,23 +191,42 @@ public class User {
         this.iDnum = iDnum;
     }
 
+    /**
+     * Gets the Username of the User
+     * @return Username of the User
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets the Username of the User
+     * @param username String for Username of the User
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Gets the Password of the User
+     * @return Return the Password of the User
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Sets the Password of the User
+     * @param password String for Password of the User
+     */
     public void setPassword(String password) {
         this.password = password;
     }
     
-    
+    /**
+     * Joins the Forename and Surname of the user
+     * @return Returns the joined Forename and Surname of the user
+     */
     public String returnFullName(){
         return String.format("%s %s", getForename(), getSurname());
     }
