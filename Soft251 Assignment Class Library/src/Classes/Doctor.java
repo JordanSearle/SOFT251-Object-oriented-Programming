@@ -7,10 +7,9 @@ package Classes;
  */
 
 
-import Classes.StatePattern.Appointment;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Doctor Class
@@ -25,10 +24,10 @@ public class Doctor extends User implements Serializable{
      * Gets all the Appointment times
      * @return Returns the times of the Appointments
      */
-    public ArrayList<Date> getAppointmentTimes(){
-        ArrayList<Date>date = new ArrayList();
+    public ArrayList<LocalDateTime> getAppointmentTimes(){
+        ArrayList<LocalDateTime>date = new ArrayList();
         for (int i = 0; i < appointment.size(); i++) {
-            date.add(appointment.get(i).getDate());
+            date.add(appointment.get(i).getStartTime());
         }        
         return date;
     }
@@ -58,7 +57,7 @@ public class Doctor extends User implements Serializable{
         for (int i = 0; i < ratings.size(); i++) {
             ratingNum = ratingNum + ratings.get(i).getRating();
         }
-        int rating = Math.round(ratingNum / ratings.size());
+        this.rating = Math.round(ratingNum / ratings.size());
     }
 
     /**

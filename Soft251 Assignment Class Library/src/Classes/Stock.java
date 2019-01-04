@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Stock Class
  * @author Jordan Searle
  */
 public class Stock implements Serializable{
@@ -49,7 +49,7 @@ public class Stock implements Serializable{
      * Uses a selected medicine if the stock is high enough
      * Selects the Correct Medicine by variable name
      * removes the stock of the selected medicine from variable i
-     * @param i is the selected Medicine stock
+     * @param i is the Index selected Medicine stock
      * @param name is the selected Medicine name
      */
      public void useStock(int i, String name){
@@ -64,6 +64,10 @@ public class Stock implements Serializable{
         }        
     }      
      
+    /**
+     * Returns the entire Class
+     * @return Returns the entire Class
+     */ 
     public Stock returnStock(){
         return this;
     }

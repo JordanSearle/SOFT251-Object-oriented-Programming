@@ -13,7 +13,7 @@ import java.time.Period;
 
 
 /**
- *
+ * Default User class
  * @author Jordan
  */
 public class User implements Serializable{

@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 
 /**
- *
+ * Medicine Class
  * @author Jordan
  */
 public class Medicine implements Serializable{
@@ -32,7 +32,7 @@ public class Medicine implements Serializable{
      * initialises the Name and Stock Variables with Data
      *
      * @param Name Medicine Name
-     * @param Quanity Quantity of the Medicine
+     * @param Quantity
      * @param Dosage Dosage required
      */
     public Medicine(String Name, int Quantity, String Dosage){
@@ -40,6 +40,12 @@ public class Medicine implements Serializable{
     this.Quantity = Quantity;
     this.Dosage = Dosage;
     }
+
+    /**
+     *
+     * @param Name
+     * @param Stock
+     */
     public Medicine(String Name, int Stock){
         this.name = Name;
         this.Stock = Stock;
@@ -110,10 +116,18 @@ public class Medicine implements Serializable{
         this.Stock = Stock;
     }
 
+    /**
+     * Returns the Boolean status of the Medicine
+     * @return Returns the Boolean status of the Medicine
+     */
     public Boolean getPrescribed() {
         return prescribed;
     }
 
+    /**
+     * Sets the Boolean Status of the Medicine to true or false, false by default
+     * @param prescribed Sets the Boolean Status of the Medicine
+     */
     public void setPrescribed(Boolean prescribed) {
         this.prescribed = prescribed;
     }

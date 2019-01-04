@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- *
+ * AccountStore
  * @author Jordan Searle
  */
 public class accountStore implements Serializable {
@@ -18,6 +18,10 @@ public class accountStore implements Serializable {
     private ArrayList<Secretary> secretary = new ArrayList();
     private ArrayList<Administrator> admin = new ArrayList();
     private ArrayList<Stock> stock = new ArrayList();
+
+    /**
+     *
+     */
     public accountStore(){
         
     }
@@ -102,6 +106,10 @@ public class accountStore implements Serializable {
         this.admin = admin;
     }
     
+    /**
+     * Serialises the Class 
+     * @throws IOException
+     */
     public void writeObject() throws IOException {
         String filename = "C:/Users/megst/Documents/NetBeansProjects/testweb/web/medicine.ser"; 
         // Serialization  
@@ -118,25 +126,33 @@ public class accountStore implements Serializable {
       }
     }
  
-    public void readObject() 
-      throws ClassNotFoundException, IOException {
+    /**
+     * Deserialises the Class
+     * @return the Deserialised class
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
+    public accountStore readObject() 
+      throws ClassNotFoundException, IOException {  
+    accountStore accounts = new accountStore();
         String filename = "C:/Users/megst/Documents/NetBeansProjects/testweb/web/medicine.ser"; 
         // Deserialization 
-         try {
+    try {
          FileInputStream fileIn = new FileInputStream(filename);
          ObjectInputStream in = new ObjectInputStream(fileIn);
          accountStore temp = (accountStore) in.readObject();
+         accounts = temp;
          in.close();
          fileIn.close();
+         
       } catch (IOException i) {
          i.printStackTrace();
-         return;
       } catch (ClassNotFoundException c) {
          System.out.println("Employee class not found");
          c.printStackTrace();
-         return;
       }
-    }
     
+    return accounts;
     
+}
 }

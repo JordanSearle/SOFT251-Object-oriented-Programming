@@ -5,12 +5,11 @@
  */
 package Classes;
 
-import Classes.StatePattern.Appointment;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Secretary Class
  * @author Jordan Searle
  */
 public class Secretary extends User implements Serializable{
@@ -18,36 +17,87 @@ public class Secretary extends User implements Serializable{
     private ArrayList<Patient>approvePatient = new ArrayList();
     private ArrayList<Appointment>approveAppointment = new ArrayList();
     
+    /**
+     * Gets the Entire list of appointments waiting to be approved
+     * @return The List of waiting appointments
+     */
     public ArrayList<Appointment> getAppointments(){
         return approveAppointment;
     }
+
+    /**
+     * Adds an appointment to the approval list
+     * @param appointment Is the class that is being added to the approval List
+     */
     public void addAppointments(Appointment appointment){
         approveAppointment.add(appointment);
     }
+
+    /**
+     * Deletes a selected appointment from the approval list
+     * @param appointmentNum Int  for the location of the Appointment in the list
+     */
     public void delAppointment(int appointmentNum){
         approveAppointment.remove(appointmentNum);
     }
+
+    /**
+     * Approves a selected appointment in the approval list
+     * @param appointment appointment is the ArrayList which the appointment is being added to
+     * @param appointmentNum appointmentNum is the index of the appointment being approved
+     * @return The updated ArrayList with the approved appointment
+     */
     public ArrayList<Appointment> approveAppointments(ArrayList<Appointment> appointment, int appointmentNum){
         ArrayList<Appointment>appointments = appointment;
         int number = appointmentNum;
         appointments.add(approveAppointment.get(number)); 
         return appointments;
     }
+
+    /**
+     * Approves a new Patient
+     * @param patientNum Int containing the Index of the new patient in the ArrayList
+     * @return Returns the new patient details 
+     */
     public Patient approvePatient(int patientNum){
        Patient patient = approvePatient.get(patientNum);
        return patient;
     }
+
+    /**
+     * Adds a patient for approval
+     * @param patient Contains the patient details being added
+     */
     public void addPatient(Patient patient){
        approvePatient.add(patient);
     }
+
+    /**
+     * Removes a pending patient
+     * @param numberPatient Int for the index of the Patient in the List
+     */
     public void disprovePatient(int numberPatient){
         this.approvePatient.remove(numberPatient);
     }
+
+    /**
+     * Deletes an existing approved patient from an Int
+     * @param patientNum Int where the patient is located in the List
+     * @param patients ArrayList which the patient is removed from
+     * @return Returns the updated ArrayList
+     */
     public ArrayList<Patient>delPatient(int patientNum, ArrayList<Patient> patients){
         ArrayList<Patient> patient = patients;
         patient.remove(patientNum);
         return patient;
     }
+
+    /**
+     * Deletes an existing approved Patient from their Full Name
+     * @param Patient Is the List which the Patient will be removed from
+     * @param PatientFullName Is the Full Name of the patient which will be removed
+     * @return Returns the updated ArrayList
+     */
     public ArrayList<Patient> delPatient(ArrayList<Patient>Patient,String PatientFullName){
         ArrayList<Patient>Patients = Patient;
         String name = PatientFullName;
@@ -59,6 +109,14 @@ public class Secretary extends User implements Serializable{
         return Patients;
     }
     
+    /**
+     * Uses a select amount of Medicine from the system
+     * Sets the Medicine as being used in the Prescription
+     * @param stock Class containing the Stock of the Medicine
+     * @param patient Containing the Patient who will be prescribed the medicine to
+     * @param prescription Containing the prescription the Medicines used
+     * @return Returns the Updated Stock Class
+     */
     public Stock useStock(Stock stock, Patient patient, Prescription prescription){
         Patient patientStore = patient;
         Stock stockStore = stock;
@@ -82,6 +140,13 @@ public class Secretary extends User implements Serializable{
         return stockStore;
     }
     
+    /**
+     * Adds medicine to the Stock
+     * @param stock Class containing the Stock of the Medicine
+     * @param Amount Amount Int that selects the amount of Stock being added
+     * @param medicine Medicine which the Stock will be added too
+     * @return Returns the Stock Class with updated stock
+     */
     public Stock addStock(Stock stock, int Amount, Medicine medicine){
         Stock tempStock = stock;
         ArrayList<Medicine> medicines = stock.getMedicine();
