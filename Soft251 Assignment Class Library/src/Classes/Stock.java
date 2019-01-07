@@ -89,7 +89,14 @@ public class Stock implements Serializable{
      */
     public Medicine getMedicine(int amount, String medicineName){
         useStock(amount, medicineName);
-        return medicine.get(amount);
+        Medicine temp = new Medicine();
+        for (int i = 0; i < medicine.size(); i++) {
+            if (medicine.get(i).getName()==medicineName) {
+                temp.setName(medicine.get(i).getName());
+                temp.setStock(amount);
+            }
+        }
+        return temp;
     }
 
     /**

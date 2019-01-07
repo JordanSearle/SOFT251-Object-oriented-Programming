@@ -15,29 +15,14 @@ import java.util.ArrayList;
 public class Administrator extends User implements Serializable{
 
     /**
-     * Creates a Patient account for the Administrator
-     * @param patient ArrayList of Patients
-     * @return edited ArrayList of Patients
+     * Adds a new Administrator Account
+     * @param Admin Admin Contains the ArrayList which the new Administrator will be added to.
+     * @param adminTemp contains the class details for the new Administrator
+     * @return Returns the updated ArrayList
      */
-    public ArrayList<Patient> addPatient(ArrayList<Patient> patient){
-        ArrayList<Patient> patients = patient;
-        Patient admin = new Patient();
-        
-        admin.setiDnum(getiDnum());
-        admin.setForename(getForename());
-        admin.setSurname(getSurname());
-        admin.setDateOfBirth(getDateOfBirth());
-        admin.calculateAge();
-        admin.setAddressLineOne(getAddressLineOne());
-        admin.setAddressLineTwo(getAddressLineTwo());
-        admin.setPostcode(getPostcode());
-        admin.setCity(getCity());
-        admin.setUsername(getUsername());
-        admin.setPassword(getPassword());
-        
-        patients.add(admin);
-        return patients;
-        
+    public ArrayList<Administrator> addAdministrator(ArrayList<Administrator> Admin,Administrator adminTemp){
+        Admin.add(adminTemp);
+        return Admin;        
     }
 
     /**

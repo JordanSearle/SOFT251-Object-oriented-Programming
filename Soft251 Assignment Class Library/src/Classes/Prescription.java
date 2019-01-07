@@ -25,7 +25,6 @@ public class Prescription {
      */
     public void addMedicine(Medicine medicines){
     medicine.add(medicines);
-    setNotes(medicines.getName());
     }
     
     /**
@@ -79,14 +78,10 @@ public class Prescription {
 
     /**
      * Sets the String of Notes
-     * @param name String that passes through the Medicine name
+     * @param name String notes 
      */
     public void setNotes(String name) {
-        String nameStore = "";
-        for (int i = 0; i < medicine.size(); i++) {
-            nameStore = getNotes() + String.format("%s, %x, %s. ", name, medicine.get(i).getQuantity(), medicine.get(i).getDosage());
-        }
-        this.notes = nameStore;        
+        this.notes = name;        
     }
 
     /**
