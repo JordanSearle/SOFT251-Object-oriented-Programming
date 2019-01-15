@@ -13,8 +13,9 @@ import java.util.ArrayList;
  * @author Jordan Searle
  */
 public class Secretary extends User implements Serializable{
-    
+    private static final long serialVersionUID = -8502678843666016948L;
     private ArrayList<Patient>approvePatient = new ArrayList();
+    private ArrayList<Patient>approveDelPatient = new ArrayList();
     private ArrayList<Appointment>approveAppointment = new ArrayList();
     
     /**
@@ -23,6 +24,54 @@ public class Secretary extends User implements Serializable{
      */
     public ArrayList<Appointment> getAppointments(){
         return approveAppointment;
+    }
+
+    /**
+     * Returns ArrayList of pending new Patients
+     * @return ArrayList for the pending Patients
+     */
+    public ArrayList<Patient> getApprovePatient() {
+        return approvePatient;
+    }
+
+    /**
+     * Sets the ArrayList of pending Patients
+     * @param approvePatient ArrayList containing pending Patients
+     */
+    public void setApprovePatient(ArrayList<Patient> approvePatient) {
+        this.approvePatient = approvePatient;
+    }
+
+    /**
+     * Gets an ArrayList of pending deleted Patients
+     * @return an ArrayList of pending deleted Patients
+     */
+    public ArrayList<Patient> getApproveDelPatient() {
+        return approveDelPatient;
+    }
+
+    /**
+     * Sets the ArrayList of pending Deleted Patients
+     * @param approveDelPatient ArrayList of pending Deleted Patients
+     */
+    public void setApproveDelPatient(ArrayList<Patient> approveDelPatient) {
+        this.approveDelPatient = approveDelPatient;
+    }
+
+    /**
+     * Gets an ArrayList of pending appointments
+     * @return an ArrayList of pending appointments
+     */
+    public ArrayList<Appointment> getApproveAppointment() {
+        return approveAppointment;
+    }
+
+    /**
+     * Sets the ArrayList of pending Appointments
+     * @param approveAppointment the ArrayList of pending Appointments
+     */
+    public void setApproveAppointment(ArrayList<Appointment> approveAppointment) {
+        this.approveAppointment = approveAppointment;
     }
 
     /**
@@ -70,6 +119,13 @@ public class Secretary extends User implements Serializable{
      */
     public void addPatient(Patient patient){
        approvePatient.add(patient);
+    }
+    /**
+     * Returns Patient List
+     * @return patient ArrayList
+     */
+    public ArrayList<Patient> getPatients(){
+        return approvePatient;
     }
 
     /**

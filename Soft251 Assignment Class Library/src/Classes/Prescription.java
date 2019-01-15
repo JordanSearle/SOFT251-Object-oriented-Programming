@@ -7,12 +7,13 @@ package Classes;
  */
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * Prescription Class
  * @author Jordan
  */
-public class Prescription {
+public class Prescription implements Serializable{
     
     private int quanity;
     private String notes = "";

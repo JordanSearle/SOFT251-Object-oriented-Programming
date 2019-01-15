@@ -24,13 +24,30 @@ public class Appointment implements Serializable{
     private String DoctorNotes;
     private Patient patient;
     private Doctor doctor;
+    private boolean Completed = false;
 
     /**
      * Returns the Appointment Duration in Hours
      * @return The Duration of the appointment in hours
      */
-    public String getDuration() {
-        return String.format("%o Hours", duration);
+    public Long getDuration() {
+        return duration;
+    }
+
+    /**
+     * Boolean, to see if Appointment is complete or not
+     * @return True or False
+     */
+    public boolean isCompleted() {
+        return Completed;
+    }
+
+    /**
+     * Sets the boolean value of the completed
+     * @param Completed True or false value
+     */
+    public void setCompleted(boolean Completed) {
+        this.Completed = Completed;
     }
 
     /**
@@ -38,7 +55,8 @@ public class Appointment implements Serializable{
      * Takes the startTime Variable and finishTime Variable and calculates the duration
      */
     public void setDuration() {
-        duration = ChronoUnit.HOURS.between(startTime, finishTime);
+        duration = null;
+        duration = startTime.until(finishTime, ChronoUnit.MINUTES);
     }
 
     /**

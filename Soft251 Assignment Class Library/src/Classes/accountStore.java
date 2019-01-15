@@ -18,7 +18,8 @@ public class accountStore implements Serializable {
     private ArrayList<Secretary> secretary = new ArrayList();
     private ArrayList<Administrator> admin = new ArrayList();
     private ArrayList<Stock> stock = new ArrayList();
-
+    //Change To correct File location
+    private final String filename = "medicine.ser"; 
     /**
      *
      */
@@ -111,7 +112,6 @@ public class accountStore implements Serializable {
      * @throws IOException
      */
     public void writeObject() throws IOException {
-        String filename = "C:/Users/megst/Documents/NetBeansProjects/testweb/web/medicine.ser"; 
         // Serialization  
         try {
          FileOutputStream fileOut =
@@ -135,7 +135,7 @@ public class accountStore implements Serializable {
     public accountStore readObject() 
       throws ClassNotFoundException, IOException {  
     accountStore accounts = new accountStore();
-        String filename = "C:/Users/megst/Documents/NetBeansProjects/testweb/web/medicine.ser"; 
+        
         // Deserialization 
     try {
          FileInputStream fileIn = new FileInputStream(filename);
