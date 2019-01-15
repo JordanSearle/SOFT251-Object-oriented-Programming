@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Stock
+    Document   : Consultation
     Created on : 08-Jan-2019, 16:49:07
     Author     : Jordan Searle
 --%>
@@ -10,19 +10,31 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%
+    
     if (session.getAttribute("username")==null){
         response.sendRedirect("index.jsp");
         return;
     }
     String ID=(String)session.getAttribute("ID");
     if (session.getAttribute("username")!=null) {
-        if (ID.charAt(0)=='P') {
+        if (ID.charAt(0)!='D') {
             response.sendRedirect("index.jsp");
             return;
         }            
-    }
+    } 
+    
+    System.out.println(session.getAttribute("num"));
+    String number=String.valueOf(session.getAttribute("num"));
+    int num = Integer.valueOf(number);
     accountStore store = new accountStore();
     store = store.readObject();
+    Appointment app = new Appointment();
+    for (Doctor doc : store.getDoctor()) {
+            if (doc.getiDnum().equals(ID)) {
+                 app = doc.getAppointment().get(num);
+            }
+        }
+    
 %>
 <!DOCTYPE html>
 
@@ -96,47 +108,20 @@
   
 </nav>
   <div class="container p-3">
-        <h1>Stock</h1>
-        <table class="table table-hover shadow">
-  <thead>
-    <tr>
-      <th scope="col">Medicine Name</th>
-      <th scope="col">Stock Level</th>
-      <th scope="col">Order More</th>
-    </tr>
-  </thead>
-  <tbody>
-                         
-                    <%
-                        for (Stock stock : store.getStock()) {
-                            for (Medicine medicine : stock.getMedicine()) {
-                                 out.println("<tr>");
-                                    out.println("<td>"+medicine.getName()+"</td>");
-                                    out.println("<td>"+medicine.getStock()+"</td>");
-                                    out.println("<td>");
-                                    if (ID.charAt(0)=='S') {
-                                    out.println("<form action=\"addStock\"id=\""+medicine.getName()+"\">");
-                                    out.println("Enter New Medicine Name : <input type=\"number\" name=\"stockAmount\" min=\"1\" required>");   
-                                    out.println("</form>");
-                                    out.println("<button type=\"submit\" form=\""+medicine.getName()+"\" value=\""+medicine.getName()+"\" name=\"medName\">"+"Add "+medicine.getName()+"</button");
-                                    out.println("</tr>");  
-                                    }
-                            }
-                        }
-                    %>       
-                    
-  </tbody>
-        </table>       
-                    <form action="addMed">
-                        
-                    <%
-                        if (ID.charAt(0)=='D') {
-                            out.println("<h1>Add New Medicine</h1>");
-                                out.println("Enter New Medicine Name : <input type=\"text\" name=\"newMed\" required><br>");
-                                out.println("<input type=\"submit\" value=\"Add New Med\">");
-                        }
-                    %> 
-                    </form>
+        <h1>Consultation Details</h1>
+        <%
+        out.println("<h4>"+app.getPatient().returnFullName()+"</h4>");
+        out.println("<h4>"+app.getPatientNotes()+"</h4>");        
+        %>
+        <form action="conSave">
+            Consultation Notes : <textarea  name="notes" required></textarea> <br>  
+            <button id="btnPres" type="button">Add Prescription</button>
+            <div id="pres">                
+            </div>
+            
+             <input type="submit" value="Save and Close">
+        </form>
+        
 </div>
   
   
@@ -145,7 +130,30 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
+    <script>
+            var colArray = new Array();
+             colArray = [];
+        <% for (int i=0; i<store.getStock().get(0).getMedicine().size(); i++) { %>
+         colArray[<%= i %>] = "<%= store.getStock().get(0).getMedicine().get(i).getName() %>"; 
+        <% } %>
+            var j=0;
+   
+        $("#btnPres").click(function(){
+                   
+         
+            $("#pres").append("<div class=\"p-3\">");
+            $("#pres").append("Select Medicine : <select name=\"medNum\"id=\""+j+"\">");
+            for (i = 0; i < colArray.length; i++) {
+                $("#"+j).append("<option value=\""+i+"\">"+colArray[i]+"</option>");
+            }
+            $("#pres").append("</select><br>");
+            $("#pres").append("<br>Dosage : <input type=\"text\" name=\"preDosage\" required>");
+        $("#pres").append("  Quantity : <input type=\"text\" name=\"quantity\" required><br>");
+        $("#pres").append("</div>");
+        j++;
+      });
+        
+    </script>
 
         
     </body>
