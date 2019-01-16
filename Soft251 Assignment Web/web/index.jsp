@@ -32,7 +32,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html"><button type="button" class="btn btn-primary">HOME</button></a>
+        <a class="nav-link" href="index.jsp"><button type="button" class="btn btn-primary">HOME</button></a>
       </li>
       <li class="nav-item">
           <%
@@ -244,7 +244,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>

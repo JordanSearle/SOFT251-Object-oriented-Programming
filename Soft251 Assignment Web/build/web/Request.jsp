@@ -47,7 +47,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html"><button type="button" class="btn btn-primary">HOME</button></a>
+<a class="nav-link" href="index.jsp"><button type="button" class="btn btn-primary">HOME</button></a>
       </li>
       <li class="nav-item">
           <%
@@ -227,21 +227,7 @@
        <table class="table table-hover shadow">
   <tbody>
                          
-                    <%
-                    try{
-                        if (ID.charAt(0)=='S') {
-                    
-                    for (Doctor sec : store.getDoctor()) {                        
-                            out.println("<tr>");
-                            out.println("<td>"+sec.getUsername()+"</td>");
-                            out.println("</tr>");                    
-                    }
-                }}
-                    catch(IndexOutOfBoundsException e){
-                         System.out.println("Exception occurred");
-                         return;
-                    }
-                    %>       
+     
                     
   </tbody>
         </table> 

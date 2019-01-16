@@ -51,7 +51,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html"><button type="button" class="btn btn-primary">HOME</button></a>
+       <a class="nav-link" href="index.jsp"><button type="button" class="btn btn-primary">HOME</button></a>
       </li>
       <li class="nav-item">
           <%
@@ -170,9 +170,9 @@
                                                     if (med.getPrescribed()==false) {  
                                                     out.println("<td>");
                                                     out.println("<form action=\"preMed\"id=\""+med.getName()+"\">"); 
-                                                    out.println("<input type=\"text\" name=\"stockName\" readonly value=\""+med.getName()+"\">");   
-                                                    out.println("<input type=\"text\" name=\"idNUM\" readonly value=\""+patient.getiDnum()+"\">");   
-                                                    out.println("<input type=\"text\" name=\"medNum\" readonly value=\""+number+"\">");  
+                                                    out.println("<input type=\"hidden\" name=\"stockName\" readonly value=\""+med.getName()+"\">");   
+                                                    out.println("<input type=\"hidden\" name=\"idNUM\" readonly value=\""+patient.getiDnum()+"\">");   
+                                                    out.println("<input type=\"hidden\" name=\"medNum\" readonly value=\""+number+"\">");  
                                                     out.println("</form>");
                                                     out.println("<button type=\"submit\" form=\""+med.getName()+"\" value=\""+med.getName()+"\" name=\"medName\">"+"Prescribe "+med.getName()+"</button");
                                                     number++;
